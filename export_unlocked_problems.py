@@ -49,7 +49,7 @@ class LeetCodeParser:
             _top_problems.add(_.text)
         return _top_problems
 
-    def fetch_all_unlocked_problems(self):
+    def fetch_all_problems(self):
         """
         Fetch all unlocked problems
         """
@@ -60,9 +60,9 @@ class LeetCodeParser:
 
     def parse_and_write_output(self):
         __top_problems = self.fetch_top_problems()
-        __all_problems_table_source = self.fetch_all_unlocked_problems()
+        __all_problems_table_source = self.fetch_all_problems()
         with open(f"leetcode_{DIFFICULTY.lower()}.md", "w") as outfile:
-            outfile.write(f"## {DIFFICULTY}\n\n")
+            outfile.write(f"## LeetCode {DIFFICULTY} Problems\n\n\n")
             soup = BeautifulSoup(__all_problems_table_source, "html.parser")
             rows = soup.find_all(["tr"])
             for row in rows:
