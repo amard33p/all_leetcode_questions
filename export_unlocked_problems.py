@@ -33,7 +33,6 @@ class LeetCodeParser:
             EC.visibility_of_element_located(PAGINATION_LOCATOR)
         )
         select = Select(self.driver.find_element(*PAGINATION_LOCATOR))
-        select = Select(self.driver.find_element(*PAGINATION_LOCATOR))
         select.select_by_visible_text("all")
 
     def fetch_top_problems(self):
